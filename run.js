@@ -1,5 +1,7 @@
 
 let newLengthEntry = document.createElement("p");
+let button = document.createElement("button");
+button.innerHTML = "X";
 let dateData = [];
 let lengthData = [];
 let timeData = [];
@@ -9,7 +11,7 @@ if(JSON.parse(localStorage.getItem("Pace"))!=null){minutePerMileData = JSON.pars
 if (JSON.parse(localStorage.getItem("Time"))!=null){timeData = JSON.parse(localStorage.getItem("Time"))};
 if (JSON.parse(localStorage.getItem("Length"))!=null){lengthData = JSON.parse(localStorage.getItem("Length"))};
 for(let i = 0; i<dateData.length; i++){let x = document.createElement("p");dateColumn.appendChild(x); x.innerHTML=dateData[i];}
-for(let i = 0; i<timeData.length; i++){let x = document.createElement("p");timeColumn.appendChild(x); x.innerHTML=timeData[i]+" minutes";}
+for(let i = 0; i<timeData.length; i++){let y = document.createElement("button");let x = document.createElement("p");timeColumn.appendChild(x); x.innerHTML=timeData[i]+" minutes"; x.appendChild(y); y.innerHTML="X";}
 for(let i = 0; i<lengthData.length; i++){let x = document.createElement("p");lengthColumn.appendChild(x); x.innerHTML=lengthData[i]+" miles";}
 
 let submitrun = () => {
@@ -32,6 +34,8 @@ lengthColumn.appendChild(newLengthEntry);
 
 let newTimeEntry = document.createElement("p");
 newTimeEntry.innerHTML=time + " minutes";
+newTimeEntry.appendChild(button)
+
 timeColumn.appendChild(newTimeEntry);
 
 
