@@ -10,11 +10,16 @@
 </head>
 <body>
 <center>
+<h1>Running Journal <br></h1>
 <input id = "date" type="text" placeholder="Date MM-DD-YYYY">
 <input id = "length" type="text" placeholder="Miles">
 <input id = "time" type="text" placeholder="Time in minutes MM:SS">
 <button type="submit" onclick="submitrun(); updategraph();" >Submit Run</button>
-<button type="button" onclick="save()">Save</button>
+<div>
+    <p><br></p>
+    <input type="text" id="delete" placeholder="MM-DD-YYYY (refresh)">
+    <button type="buttom mn" onclick="pop()">Delete</button>
+    </div>
 <div class="row">
     <div class="column" id="dateColumn">
         <h2>Date</h2>
@@ -32,10 +37,12 @@
 <div class="chart-container" style="position: relative; height:40vh; width:45vw">
     <canvas id="myChart" width="400" height="400"></canvas>
 </div>
+
 </center>
 <div class="chart-container" style="position: relative; height:40vh; width:45vw">
     <canvas id="myChart" width="400" height="400"></canvas>
 </div>
+
 <script src="run.js">
 </script>
 <script>
@@ -64,8 +71,10 @@ const myChart = new Chart(ctx, {
                 'rgba(255, 159, 64, 1)'
             ],
             borderWidth: 1
-        }]
+        }
+    ]
     },
+    
     options: {
         scales: {
             y: {
